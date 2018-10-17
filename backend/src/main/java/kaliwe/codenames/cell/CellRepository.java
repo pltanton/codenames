@@ -1,4 +1,4 @@
-package kaliwe.codenames.field;
+package kaliwe.codenames.cell;
 
 import kaliwe.codenames.cell.Cell;
 import kaliwe.codenames.cell.CellId;
