@@ -17,10 +17,10 @@ import java.util.Optional;
 public class StompController {
     private final CellRepository cellRepository;
 
-    @MessageMapping("/stomp/{fieldId}")
-    @SendTo("/topic/{fieldId}")
-    public int openCell(@DestinationVariable String fieldId, int position) {
-        Optional<Cell> cellOptional= cellRepository.findById(new CellId(fieldId, position));
+    @MessageMapping("/foo")
+    @SendTo("/topic/bar")
+    public int openCell(int position) {
+        Optional<Cell> cellOptional= cellRepository.findById(new CellId("хостоги", position));
         if (!cellOptional.isPresent()) return -1;
         Cell cell = cellOptional.get();
         cell.setOpen(true);
