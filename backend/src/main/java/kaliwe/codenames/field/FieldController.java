@@ -31,9 +31,8 @@ public class FieldController {
     }
 
     @RequestMapping(value = "/field", method = POST)
-    public String createField(@RequestParam String wordsString) throws Exception {
-
-        List<String> words = generateWordsMap(wordsString);
+    public String createField(@RequestParam List<String> words) {
+        Collections.shuffle(words);
         List<CellColor> colors = generateColorsMap();
         Field field = createNewGame();
 
@@ -52,13 +51,6 @@ public class FieldController {
             cells.add(cell);
         }
         return cellRepository.saveAll(cells);
-    }
-
-    private List<String> generateWordsMap(String wordsString) throws Exception {
-        List<String> words = Arrays.stream(wordsString.split(",")).map(String::trim).collect(Collectors.toList());
-        if (words.size() != 25) throw new Exception();
-        Collections.shuffle(words);
-        return words;
     }
 
     private List<CellColor> generateColorsMap() {

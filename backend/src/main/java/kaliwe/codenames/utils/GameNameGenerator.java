@@ -37,6 +37,7 @@ public class GameNameGenerator {
     }
 
     private char getNext(char cur) {
+        System.out.println((int)cur);
         Map<Character, Double> props = PROP_MAP.get(cur);
         double p = Math.random();
         double cumulativeProbability = 0.0;

@@ -3,7 +3,7 @@ import sys
 
 d = {}
 
-chars = [chr(i) for i in range(ord('а'), ord('я'))]
+chars = [chr(i) for i in range(ord('а'), ord('я') + 1)]
 for cur in chars:
     d[cur] = {}
     for nxt in chars:
